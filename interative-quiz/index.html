@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz | Conhecimento Gerais</title>
+</head>
+
+<body>
+    <div class="intro py-3 bg-dark text-center">
+        <div class="container">
+            <h2 class="text-light display-3 my-4">Quiz</h2>
+        </div>
+    </div>
+
+    <div class="quiz py-4 bg-light">
+        <div class="container">
+            <h2 class="my-5 text-dark">Perguntas de conhecimentos gerais?</h2>
+
+            <form class="quiz-form text-dark">
+                <div class="my-5">
+                    <p class="lead font-weight-normal">1. Normalmente, quantos litros de sangue uma pessoa tem? Em
+                        média, quantos são retirados numa doação de sangue?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion1" value="A" checked>
+                            Tem entre 2 a 4 litros. São retirados 450 mililitros
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion01">
+                            <input type="radio" name="inputQuestion1" value="B">
+                            Tem entre 4 a 6 litros. São retirados 450 mililitros
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion1" value="C">
+                            Tem 10 litros. São retirados 2 litros
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion1" value="D">
+                            Tem 7 litros. São retirados 1,5 litros
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion1" value="E">
+                            Tem 0,5 litros. São retirados 0,5 litros
+                        </label>
+                    </div>
+                </div>
+
+                <div class="my-5">
+                    <p class="lead font-weight-normal">2. De quem é a famosa frase “Penso, logo existo"?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion2" value="A" checked>
+                            Platão
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion2" value="B">
+                            Galileu Galilei
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion02">
+                            <input type="radio" name="inputQuestion2" value="C">
+                            Descartes
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion2" value="D">
+                            Sócrates
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion2" value="E">
+                            Francis Bacon
+                        </label>
+                    </div>
+                </div>
+
+                <div class="my-5">
+                    <p class="lead font-weight-normal">3. De onde é a invenção do chuveiro elétrico?
+                    </p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion3" value="A" checked>
+                            França
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion3" value="B">
+                            Inglaterra
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion03">
+                            <input type="radio" name="inputQuestion3" value="C">
+                            Brasil
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion3" value="D">
+                            Austrália
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion3" value="E">
+                            Itália
+                        </label>
+                    </div>
+                </div>
+
+                <div class="my-5">
+                    <p class="lead font-weight-normal">4. Quais o menor e o maior país do mundo?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion04">
+                            <input type="radio" name="inputQuestion4" value="A" checked>
+                            Vaticano e Rússia
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion4" value="B">
+                            Nauru e China
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion4" value="C">
+                            Mônaco e Canadá
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion4" value="D">
+                            Malta e Estados Unidos
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion4" value="E">
+                            São Marino e Índia
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <p class="lead font-weight-normal">5. Qual o nome do presidente do Brasil que ficou conhecido como
+                        Jango?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion5" value="A" checked>
+                            Jânio Quadros
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion5" value="B">
+                            Jacinto Anjos
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion5" value="C">
+                            Getúlio Vargas
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion5" value="D">
+                            João Figueiredo
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion05">
+                            <input type="radio" name="inputQuestion5" value="E">
+                            João Goulart
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <p class="lead font-weight-normal">6. Qual o grupo em que todas as palavras foram escritas
+                        corretamente?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion6" value="A" checked>
+                            Asterístico, beneficiente, meteorologia, entertido
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion06">
+                            <input type="radio" name="inputQuestion6" value="B">
+                            Asterisco, beneficente, meteorologia, entretido
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion6" value="C">
+                            Asterisco, beneficente, metereologia, entretido
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion6" value="D">
+                            Asterístico, beneficiente, metereologia, entretido
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion6" value="E">
+                            Asterisco, beneficiente, metereologia, entretido
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <p class="lead font-weight-normal">7. Qual o livro mais vendido no mundo a seguir à Bíblia?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion7" value="A" checked>
+                            O Senhor dos Anéis
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion07">
+                            <input type="radio" name="inputQuestion7" value="B">
+                            Dom Quixote
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion7" value="C">
+                            O Pequeno Príncipe
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion7" value="D">
+                            Ela, a Feiticeira
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion7" value="E">
+                            Um Conto de Duas Cidades
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <p class="lead font-weight-normal">8. Quantas casas decimais tem o número pi?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion8" value="A" checked>
+                            Duas
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion8" value="B">
+                            Centenas
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion08">
+                            <input type="radio" name="inputQuestion8" value="C">
+                            Infinitas
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion8" value="D">
+                            Vinte
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion8" value="E">
+                            Milhares
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <p class="lead font-weight-normal">9. Atualmente, quantos elementos químicos a tabela periódica
+                        possui?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion9" value="A" checked>
+                            113
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion9" value="B">
+                            109
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion9" value="C">
+                            108
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" id="correctAnswerQuestion09">
+                            <input type="radio" name="inputQuestion9" value="D">
+                            118
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion9" value="E">
+                            92
+                        </label>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <p class="lead font-weight-normal">10. Quais os países que têm a maior e a menor expectativa de vida
+                        do mundo?</p>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label" checked id="correctAnswerQuestion10">
+                            <input type="radio" name="inputQuestion10" value="A">
+                            Japão e Serra Leoa
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion10" value="B">
+                            Austrália e Afeganistão
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion10" value="C">
+                            Itália e Chade
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion10" value="D">
+                            Brasil e Congo
+                        </label>
+                    </div>
+                    <div class="form-check my-2 text-dark-50">
+                        <label class="form-check-label">
+                            <input type="radio" name="inputQuestion10" value="E">
+                            Estados Unidos e Angola
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn bg-primary text-light">Enviar</button>
+                    <h3 class="result my-5 text-dark ">Resuldado: </h2>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
