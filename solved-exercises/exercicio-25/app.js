@@ -20,14 +20,8 @@ const months = [
   'Dezembro'
 ]
 
-const january = months.reduce((acc, month, index) => {
-  if (month === `Janeiro`) {
-    acc = index
-  }
-  return acc
-}, 0)
-
-console.log(january)
+const february = months.indexOf(`Fevereiro`)
+console.log(february)
 
 /*
   02
@@ -57,19 +51,19 @@ const past = new Date(`Apr 15 2022 04:51:22`)
 // console.log(past)
 /*
   05
-
   - Exiba, no console, a hora do objeto que você acabou de criar.
 */
 // console.log(past.getHours())
 
 /*
   06
-
   - Crie um objeto de data que represente um momento futuro;
   - Exiba o objeto no console.
 */
+
 const future = new Date(`Apr 15 2030 14:51:22`)
 // console.log(future)
+
 /*
   07
 
@@ -78,12 +72,8 @@ const future = new Date(`Apr 15 2030 14:51:22`)
 
 const diference = future.getTime() - past.getTime()
 
-const secondsDiference = Math.round(diference / 1000)
-const minutesDiference = Math.round(secondsDiference / 60)
-const hoursDiference = Math.round(minutesDiference / 60)
-const daysDiference = Math.round(hoursDiference / 24)
-
-console.log(daysDiference)
+const diferenceInDays = Math.round(diference / 1000/ 60/ 60/ 24)
+console.log(diferenceInDays)
 
 /*
   08
