@@ -77,11 +77,7 @@ console.log(nameA, nameB)
 const a = 'a'
 const b = 'b'
 const c = 'c'
-const letters = {
-  a,
-  b,
-  c
-}
+const letters = {a,b,c}
 // console.log(letters)
 /*
   06
