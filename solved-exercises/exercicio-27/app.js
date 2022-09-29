@@ -4,17 +4,17 @@
   - Implemente um código assíncrono entre os console.log() abaixo.
 */
 
-console.log('Linha 1')
-console.log('Linha 2')
-console.log('Linha 3')
-console.log('Linha 4')
+// console.log('Linha 1')
+// console.log('Linha 2')
+// console.log('Linha 3')
+// console.log('Linha 4')
 
+// setTimeout(() => console.log(`código assíncrono executado.`), 5000)
 
-
-console.log('Linha 5')
-console.log('Linha 6')
-console.log('Linha 7')
-console.log('Linha 8')
+// console.log('Linha 5')
+// console.log('Linha 6')
+// console.log('Linha 7')
+// console.log('Linha 8')
 
 /*
   02
@@ -23,8 +23,12 @@ console.log('Linha 8')
     "logGreeting" ser exibida no console.
 */
 
-function logGreeting (name) {
+function logGreeting(name) {
   console.log(`olá, ${name}`)
+}
+
+const x = callback => {
+  callback(`Rodrigo`)
 }
 
 // x(logGreeting)
@@ -36,9 +40,10 @@ function logGreeting (name) {
 */
 
 const numbers = [3, 4, 10, 20]
-const lesserThanFive = numbers.filter(num => num < 5)
+const getLessThanFive = num => num < 5
+const lesserThanFive = numbers.filter(getLessThanFive)
 
-console.log(lesserThanFive)
+// console.log(lesserThanFive)
 
 /*
   04
@@ -47,13 +52,10 @@ console.log(lesserThanFive)
 */
 
 const prices = [12, 19, 7, 209]
-let totalPrice = 0
+const getSumOfPrices = (acc, price) => acc += price
+const totalPrice = prices.reduce(getSumOfPrices, 0)
 
-for (let i = 0; i < prices.length; i++) {
-  totalPrice += prices[i]
-}
-
-console.log(`Preço total: ${totalPrice}`)
+// console.log(`Preço total: ${totalPrice}`)
 
 /*
   05
@@ -63,6 +65,9 @@ console.log(`Preço total: ${totalPrice}`)
 */
 
 let car = { color: 'amarelo' }
+let secondCar = car
+secondCar.color = `azul`
+// console.log(car)
 
 /*
   06
@@ -73,6 +78,16 @@ let car = { color: 'amarelo' }
   - Se todos os argumentos forem passados, retorne a string 'A função foi 
     invocada com 3 argumentos'.
 */
+const threeArgumentsFeedback = (firstParameter, secondParameter, thirdParameter) => {
+  const parameters = [firstParameter, secondParameter, thirdParameter]
+  const helpFeedback = `A função deve ser invocada com 3 argumentos`
+  const successFeedBack = `A função foi invocada com 3 argumentos`
+  const isAnyParameterUndefined = parameters.includes(undefined)
+
+  return isAnyParameterUndefined ? helpFeedback : successFeedBack
+}
+
+// console.log(threeArgumentsFeedback(2, 3))
 
 /*
   07
@@ -90,13 +105,51 @@ let car = { color: 'amarelo' }
       método deve retornar a frase: "A caixa já está cheia";
     - Se ainda houverem espaços na caixa mas a quantidade de livros passada por
       parâmetro for ultrapassar o limite de espaços da caixa, mostre quantos 
-      espaços ainda podem ser ocupados, com a frase: "Só cabem mais 
+      espaços ainda podem ser ocupados, com a frasRetornar a frase: "Já há 'X' livros na caixa"e: "Só cabem mais 
       QUANTIDADE_DE_LIVROS_QUE_CABEM livros";
     - Se couber somente mais um livro, mostre a palavra "livro" (no singular) 
       na frase acima.
 */
-
-let booksBox = {
-  spaces: 5,
-  booksIn: 0
+const getPluralOrSingular = (quantity, singular, plural) => {
+  return quantity === 1 ? singular : plural
 }
+
+const getAvaliableSpaceMessage = (spaces, booksIn) => {
+  const spacesLeft = spaces - booksIn
+  const fitPluralOrSingular = getPluralOrSingular(spacesLeft, `cabe`, `cabem`)
+  const bookPluralOrSingular = getPluralOrSingular(spacesLeft, `livro`, `livros`)
+
+  return `Já há ${booksIn} livros na caixa. Só ${fitPluralOrSingular} mais ${spacesLeft} ${bookPluralOrSingular}`
+}
+
+let bookBox = {
+  spaces: 5,
+  booksIn: 0,
+
+  addBooks: booksAmount => {
+
+    let { spaces } = bookBox
+
+    const isBoxFilled = bookBox.booksIn === spaces
+    const notFitTheBooks = booksAmount + bookBox.booksIn > spaces
+
+
+    if (isBoxFilled) {
+      return `A caixa já está cheia`
+    }
+
+    if (notFitTheBooks) {
+      return getAvaliableSpaceMessage(spaces, bookBox.booksIn)
+
+    }
+
+    bookBox.booksIn += booksAmount
+    const bookPluralOrSingular = getPluralOrSingular(bookBox.booksIn, `livro`, `livros`)
+    return `Já há ${bookBox.booksIn} ${bookPluralOrSingular} na caixa`
+  }
+}
+
+console.log(bookBox.addBooks(1))
+console.log(bookBox.addBooks(3))
+console.log(bookBox.addBooks(3))
+console.log(bookBox)
