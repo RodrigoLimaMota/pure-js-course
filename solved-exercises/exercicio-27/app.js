@@ -141,14 +141,13 @@ let bookBox = {
     if (notFitTheBooks) {
       return getAvaliableSpaceMessage(spaces, bookBox.booksIn)
 
-    }
+    } 
 
     bookBox.booksIn += booksAmount
     const bookPluralOrSingular = getPluralOrSingular(bookBox.booksIn, `livro`, `livros`)
     return `Já há ${bookBox.booksIn} ${bookPluralOrSingular} na caixa`
   }
 }
-
 console.log(bookBox.addBooks(1))
 console.log(bookBox.addBooks(3))
 console.log(bookBox.addBooks(3))
