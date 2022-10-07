@@ -198,6 +198,7 @@ const createOrIncrementAgeFrequency = (acc, { age }) => {
   acc[age] = acc[age] + 1 || 1
   return acc
 }
+
 const agesFrequency = people.reduce(createOrIncrementAgeFrequency, {})
 
 console.log(agesFrequency)
