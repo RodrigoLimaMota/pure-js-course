@@ -8,6 +8,15 @@
     do GitHub.
 */
 
+const fetchGitHubUser = async username => {
+  const response = await fetch(`https://api.github.com/users/${username}`)
+  return response.json()
+}
+const logGitHubUser = async username =>
+  console.log(await fetchGitHubUser(username))
+
+// logGitHubUser(`rodrigolimamota`)
+
 /*
   02
 
@@ -17,6 +26,11 @@
 */
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const getDivisibleBy2Or3 = numbers =>
+  numbers.filter(number => number % 2 === 0 || number % 3 === 0)
+
+// console.log(getDivisibleBy2Or3(numbers))
 
 /*
   03
@@ -31,10 +45,22 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     - Natália => "PNaPtáPlia";
     - Rafaela => "PRaPfaPePla".
 */
+const rodrigoSpelled = ["ro", "dri", "go"]
+const nataliaSpelled = [`Na`, `tá`, `lia`]
+const rafaelaSpelled = [`Ra`, `fa`, `ela`]
+
+const spellReducer = (acc, syllable) => `${acc}P${syllable}`
+
+const getNameInPLanguage = nameSpelled => nameSpelled
+  .reduce(spellReducer, ``)
+
+// console.log(getNameInPLanguage(rodrigoSpelled))
+// console.log(getNameInPLanguage(nataliaSpelled))
+// console.log(getNameInPLanguage(rafaelaSpelled))
 
 /*
   04
-
+ 
   - Declare uma constante que receba seu primeiro nome;
   - Exiba no console todas as letras do seu nome separadas, com a seguinte
     mensagem: '"LETRA" é a POSIÇÃOª letra do meu nome.';
@@ -43,26 +69,41 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       - "R" é a 1ª letra do meu nome;
       - "o" é a 2ª letra do meu nome;
       - E assim por diante, até a última letra.
-
+ 
   Dica: pesquise pelo método split.
 */
 
+const firstName = `Rodrigo`
+
+const logSplitedName = name => name
+  .split('')
+  .forEach((letter, index) =>
+    console.log(`"${letter}" é a ${index}ª letra do meu nome.`))
+
+// logSplitedName(firstName)
+
+
 /*
   05
-
+ 
   - Crie um objeto com as seguintes propriedades e tipos de valores:
     - name: String
     - lastname: String
     - age: Number
   - Exiba no console, em um array, todas as propriedades do objeto acima;
   - Não use nenhuma estrutura de repetição, nem crie o array manualmente.
-
+ 
   Dica: pesquise pelo método Object.keys().
 */
-
+const person = {
+  name: String,
+  lastname: String,
+  age: Number
+}
+// console.log(Object.keys(person))
 /*
   06
-
+ 
   - Implemente uma função que retorna as ocorrências de um determinado valor em 
     um array;
   - A função deve receber um array como 1º argumento e o valor a ser buscado no 
@@ -74,6 +115,11 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 */
 
 const scores = [100, 90, 85, 100, 60, 85, 100, 90, 55, 75, 60]
+
+const getOccurrencesOfAValue = (array, value) =>
+  array.reduce((acc, item) => value === item ? acc + 1 : acc, 0)
+
+// console.log(getOccurrencesOfAValue(scores, 100))
 
 /*
   07
@@ -98,3 +144,28 @@ const scores = [100, 90, 85, 100, 60, 85, 100, 90, 55, 75, 60]
   Dica: lembre-se que o método filter inclui o item em questão no novo array 
   que está sendo gerado **apenas** se a função retorna um valor truthy.
 */
+
+const filter = (array, callback) => {
+  const newArray = []
+const insertFilteredItensIntoNewArray = (item, index, array) => {
+    let approvedItem = callback(item, index, array)
+    if (approvedItem) {
+      newArray.push(item)
+    }
+  }
+  array.forEach(insertFilteredItensIntoNewArray)
+  return newArray
+}
+
+const filteredItens01 = filter([1, 2, 3], item => item) // [1, 2, 3]
+const filteredItens02 = filter([0, 1, 2], item => item) // [1, 2]
+const filteredItens03 = filter([1, 2, 3], item => item < 2) // [1]
+const filteredItens04 = filter([1, 2, 3, 5], (item, index) => item === index + 1) // [1, 2, 3]
+const filteredItens05 = filter([1, 2, 3, 2, 1, 5], (item, index, array) =>
+  index === array.indexOf(item)) // [1, 2, 3, 5]
+
+console.log(filteredItens01)
+console.log(filteredItens02)
+console.log(filteredItens03)
+console.log(filteredItens04)
+console.log(filteredItens05)
