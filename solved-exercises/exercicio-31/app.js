@@ -147,7 +147,7 @@ const getOccurrencesOfAValue = (array, value) =>
 
 const filter = (array, callback) => {
   const newArray = []
-const insertFilteredItensIntoNewArray = (item, index, array) => {
+  const insertFilteredItensIntoNewArray = (item, index, array) => {
     let approvedItem = callback(item, index, array)
     if (approvedItem) {
       newArray.push(item)
