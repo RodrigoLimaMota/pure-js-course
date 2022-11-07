@@ -1,20 +1,28 @@
 /*
   01
-
   - Implemente uma função que recebe o nome da key de um item da localStorage 
     e retorna o valor da key parseado para objeto javascript.
 */
 
+const objExercise01 = { name: 'Rodrigo', age: 36 }
+
+const setObjAsJSON = obj => JSON.stringify(obj)
+
+localStorage.setItem('object01', setObjAsJSON(objExercise01))
+
+const getParsedObjectFromLocalStorage = key =>
+  JSON.parse(localStorage.getItem(key))
+
+console.log(getParsedObjectFromLocalStorage('object01'))
+
 /*
   02
-
   - Mesmo com um input type="number", a expressão `event.target.value` abaixo 
     resulta em uma string;
   - Exiba, no console, o valor que foi inserido no input;
   - O exibido valor deve ser do tipo number;
   - Não utilize a invocação da Number() ou qualquer outro método que converta 
     strings em number.
-
   Dica: pesquise por valueAsNumber.
 */
 
@@ -26,7 +34,6 @@ input.addEventListener('input', event => {
 
 /*
   03
-
   - Implemente uma função 'combineOperations' que recebe 2 parâmetros:
     - Um valor inicial, do tipo number;
     - Um array de funções.
@@ -39,23 +46,23 @@ input.addEventListener('input', event => {
     retornar 60 e a segunda invocação, 10.
 */
 
-function add100 (num) {
+function add100(num) {
   return num + 100
 }
 
-function divByFive (num) {
+function divByFive(num) {
   return num / 5
 }
 
-function multiplyByThree (num) {
+function multiplyByThree(num) {
   return num * 3
 }
 
-function multiplyFive (num) {
+function multiplyFive(num) {
   return num * 5
 }
 
-function addTen (num) {
+function addTen(num) {
   return num + 10
 }
 
@@ -64,7 +71,6 @@ function addTen (num) {
 
 /*
   04
-
   - O código abaixo não está funcionando. Descubra o que ele está tentando 
     fazer e refatore-o.
 */
@@ -107,7 +113,6 @@ if (albums.includes(searchAlbum)) {
 
 /*
   05
-
   - Baseado no que foi mostrado na aula passada, faça uma cópia do `obj`.
 */
 
@@ -124,18 +129,15 @@ const obj = {
 
 /*
   06
-
   - Implemente uma função que cria e retorna um elemento HTML;
   - Ela deve receber o nome do elemento HTML a ser criado e um objeto com os 
     atributos que o elemento deve conter;
   - A quantidade de atributos que o elemento irá conter pode variar.
-
   Dica: pesquise por Object.entries.
 */
 
 /*
   07
-
   - Na weather app, faça com que quando o usuário recarregar a página ou sair 
     da aplicação e voltar, as informações da última cidade pesquisada sejam 
     exibidas na interface.
