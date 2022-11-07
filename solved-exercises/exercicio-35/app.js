@@ -13,7 +13,7 @@ localStorage.setItem('object01', setObjAsJSON(objExercise01))
 const getParsedObjectFromLocalStorage = key =>
   JSON.parse(localStorage.getItem(key))
 
-console.log(getParsedObjectFromLocalStorage('object01'))
+// console.log(getParsedObjectFromLocalStorage('object01'))
 
 /*
   02
@@ -29,7 +29,7 @@ console.log(getParsedObjectFromLocalStorage('object01'))
 const input = document.querySelector('[data-js="input"]')
 
 input.addEventListener('input', event => {
-  console.log(event.target.value)
+  console.log(event.target.valueAsNumber)
 })
 
 /*
@@ -46,25 +46,19 @@ input.addEventListener('input', event => {
     retornar 60 e a segunda invocação, 10.
 */
 
-function add100(num) {
-  return num + 100
-}
+const combineOperations = (initiNumber, arrayOfFunctions) =>
+  arrayOfFunctions.reduce((acc, func) => func(acc), initiNumber)
 
-function divByFive(num) {
-  return num / 5
-}
+const add100 = num => num + 100
 
-function multiplyByThree(num) {
-  return num * 3
-}
+const divByFive = num => num / 5
 
-function multiplyFive(num) {
-  return num * 5
-}
+const multiplyByThree = num => num * 3
 
-function addTen(num) {
-  return num + 10
-}
+const multiplyFive = num => num * 5
+
+const addTen = num => num + 10
+
 
 // console.log(combineOperations(0, [add100, divByFive, multiplyByThree]))
 // console.log(combineOperations(0, [divByFive, multiplyFive, addTen]))
@@ -107,9 +101,12 @@ const searchAlbum = {
   genre: 'Rock'
 }
 
-if (albums.includes(searchAlbum)) {
-  console.log(`${JSON.stringify(searchAlbum)} existe no array albums.`)
-}
+const doesTheArrayHaveTheSearchedAlbum = albums
+  .some(album => album.id === searchAlbum.id)
+
+// if (doesTheArrayHaveTheSearchedAlbum) {
+//   console.log(`${JSON.stringify(searchAlbum,null,2)} existe no array albums.`)
+// }
 
 /*
   05
@@ -117,6 +114,7 @@ if (albums.includes(searchAlbum)) {
 */
 
 const obj = {
+  prop0: () => { },
   prop1: 'a',
   prop2: 'b',
   prop3: null,
@@ -127,6 +125,23 @@ const obj = {
   prop8: { a: 'x', b: 'y' },
 }
 
+const objCopy = {
+  ...obj,
+  prop0: () => { },
+  prop6: [
+    obj.prop6[0],
+    { ...obj.prop6[1] }
+  ],
+  prop8: { ...obj.prop8 }
+}
+
+obj.prop0.newProp = `new value`
+
+obj.prop6[1] = 'modified'
+obj.prop8.a = 'modified'
+// console.log(obj)
+// console.log(objCopy)
+
 /*
   06
   - Implemente uma função que cria e retorna um elemento HTML;
@@ -134,7 +149,31 @@ const obj = {
     atributos que o elemento deve conter;
   - A quantidade de atributos que o elemento irá conter pode variar.
   Dica: pesquise por Object.entries.
+
 */
+
+const createElement = (elementName, attributes) => {
+
+  const element = document.createElement(elementName)
+  const arrayAttributes = Object.entries(attributes)
+
+  arrayAttributes.forEach(([name, value]) =>
+    element.setAttribute(name, value))
+
+  return element
+}
+
+const inputExercise06 = createElement(`input`, {
+  type: 'radio',
+  id: 'input1',
+  name: 'main',
+  value: 'principal',
+  for: 'input1',
+  'data-js': 'input1'
+
+})
+
+console.log(inputExercise06)
 
 /*
   07
@@ -142,3 +181,4 @@ const obj = {
     da aplicação e voltar, as informações da última cidade pesquisada sejam 
     exibidas na interface.
 */
+
