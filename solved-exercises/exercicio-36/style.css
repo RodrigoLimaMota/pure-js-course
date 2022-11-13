@@ -4,8 +4,7 @@
   position: relative;
 }
 
-.carousel .carousel__item,
-.carousel .carousel__item--hidden {
+.carousel .carousel__item {
   display: none;
 }
 
@@ -52,6 +51,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
     transform: opacity linear;

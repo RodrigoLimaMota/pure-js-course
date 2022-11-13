@@ -1,3 +1,4 @@
+
 /*
   01 
   
@@ -12,20 +13,22 @@ const numbers = [50, 100, 50]
 
 const sum = (x, y, z) => x + y + z
 
-console.log(sum(numbers))
+// console.log(sum(...numbers))
 
 /*
   02
-
   - Declare uma const que armazena seu primeiro nome com todas as letras 
     minúsculas;
   - Utilizando (também) o spread operator, exiba no console o seu nome com 
     apenas a primeira letra maiúscula.
 */
+const myName = 'rodriguinho'
+const myCapitalizedName = [myName[0].toUpperCase(), ...myName.slice(`1`)].join('')
+
+// console.log(myCapitalizedName)
 
 /*
   03
-
   - No objeto abaixo, verifique se o valor da const randomNumber é maior que 50;
     - Se for, o objeto deve receber uma propriedade c, que armazena 3;
     - Se não for, o objeto deve receber uma propriedade d, que armazena 4;
@@ -36,44 +39,40 @@ const randomNumber = Math.round(Math.random() * 100)
 
 const obj = {
   a: 1,
-  b: 2
+  b: 2,
+  ...randomNumber > 50 ? { c: 3 } : { d: 4 }
 }
 
-console.log(obj)
+// console.log(obj)
 
 /*
   04
-
   - Descubra o que o código abaixo está fazendo e refatore-o para que o objeto 
     criado permaneça intacto.
 */
 
-const h = w => {
-  w.d = 3
-}
+const thirdFunction = obj => ({
+  ...obj,
+  d: 3
+})
 
-const q = f => {
-  h(f)
-}
+const secondFunction = obj => thirdFunction(obj)
 
-const i = b => {
-  q(b)
-}
+const firstFunction = obj => secondFunction(obj)
 
-const v = { k: 't' }
+const objectExercise04 = { k: 't' }
 
-i(v)
-console.log(v)
+const objectExercise04Copy = firstFunction(objectExercise04)
+
+// console.log(objectExercise04)
+// console.log(objectExercise04Copy)
 
 /*
   05
-
   - A partir do código abaixo, crie um objeto em que as propriedades são os 
     valores das propriedades 'date' e os valores das propriedades são os 
     valores de 'value'.
-
   O objeto criado deve ser assim:
-
   {
     '3242348-9842340234': 6,
     '99e89-499958': 31,
@@ -96,9 +95,17 @@ const timestamps = [
   }
 ]
 
+const objectExercise05 = timestamps.reduce((accumulator, { date, value }) => {
+  accumulator[date] = value
+
+  return accumulator
+
+}, {})
+
+// console.log(objectExercise05)
+
 /*
   06
-
   - Já implementamos os métodos some, map e filter, do zero;
   - Neste exercício, seu desafio será criar, do zero, o método forEach;
   - Implemente uma função "forEach" que possui a mesma funcionalidade do método 
@@ -117,11 +124,30 @@ const timestamps = [
 */
 
 let accumulator = 0
+
 const oddNumbers = [51, 97, 65, 23]
+
+const newForEach = (array, callback) => {
+
+  for (let index = 0; index < array.length; index++) {
+    callback(array[index], index, array)
+
+  }
+}
+
+const logMessage = (item, index, array) => {
+  const message = `"${item}" é o ${index + 1}º item do array [${array.join(' * ')}]`
+  console.log(message)
+}
+
+const addAccumulator = item => accumulator += item
+
+// newForEach(oddNumbers, logMessage)
+// newForEach(oddNumbers, addAccumulator)
+// console.log(accumulator)
 
 /*
   07
-
   - Implemente um carousel. O desafio é que o resultado final seja este: 
     https://youtu.be/ydn_bSwvlPU
   - As imagens, marcação HTML e estilos CSS estão feitos. Aqui no app.js você 
@@ -147,3 +173,44 @@ const oddNumbers = [51, 97, 65, 23]
     3 No passo 3.4, se o slide exibido atualmente não corresponder ao index do 
       1º slide, o slide anterior deve ser exibido.
 */
+
+const slides = document.querySelectorAll('[data-js="carousel__item"]')
+const nextButton = document.querySelector('[data-js="carousel__button--next"]')
+const previousButton = document.querySelector('[data-js="carousel__button--prev"]')
+
+
+const lastSlide = slides.length - 1
+const firstSlide = 0
+
+let indexOfCurrentSlide = firstSlide
+
+const setIndexOfNextSlide = () =>
+  indexOfCurrentSlide === lastSlide ?
+    indexOfCurrentSlide = firstSlide : indexOfCurrentSlide++
+
+const setIndexOfPreviousSlide = () =>
+  indexOfCurrentSlide === firstSlide ?
+    indexOfCurrentSlide = lastSlide : indexOfCurrentSlide--
+
+const removeVisibilityClass = () => slides
+  .forEach(slide => slide.classList
+    .remove('carousel__item--visible'))
+
+const displaySlide = () => slides[indexOfCurrentSlide].classList
+  .add('carousel__item--visible')
+
+const goToNextSlide = () => {
+  setIndexOfNextSlide()
+  removeVisibilityClass()
+  displaySlide()
+}
+
+const goToPreviousSlide = () => {
+  setIndexOfPreviousSlide()
+  removeVisibilityClass()
+  displaySlide()
+}
+
+nextButton.addEventListener('click', goToNextSlide)
+
+previousButton.addEventListener('click', goToPreviousSlide)
