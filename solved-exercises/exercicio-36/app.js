@@ -179,18 +179,18 @@ const nextButton = document.querySelector('[data-js="carousel__button--next"]')
 const previousButton = document.querySelector('[data-js="carousel__button--prev"]')
 
 
-const lastSlide = slides.length - 1
+const lastSlideIndex = slides.length - 1
 const firstSlide = 0
 
 let indexOfCurrentSlide = firstSlide
 
 const setIndexOfNextSlide = () =>
-  indexOfCurrentSlide === lastSlide ?
+  indexOfCurrentSlide === lastSlideIndex ?
     indexOfCurrentSlide = firstSlide : indexOfCurrentSlide++
 
 const setIndexOfPreviousSlide = () =>
   indexOfCurrentSlide === firstSlide ?
-    indexOfCurrentSlide = lastSlide : indexOfCurrentSlide--
+    indexOfCurrentSlide = lastSlideIndex : indexOfCurrentSlide--
 
 const removeVisibilityClass = () => slides
   .forEach(slide => slide.classList
